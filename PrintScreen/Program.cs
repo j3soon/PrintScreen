@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using ConfigurationData;
+using PortableConfiguration;
 using llc = LowLevelControls;
 
 namespace PrintScreen
