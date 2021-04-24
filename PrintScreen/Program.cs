@@ -94,7 +94,14 @@ namespace PrintScreen
 
         static String PrintScreen()
         {
-            Rectangle bounds = SystemInformation.VirtualScreen;
+            llc.Natives.RECT rect = llc.Screen.GetScaledVirtualScreenRect();
+            Rectangle bounds = new Rectangle
+            {
+                X = rect.left,
+                Y = rect.top,
+                Width = rect.right - rect.left,
+                Height = rect.bottom - rect.top
+            };
             Bitmap bmp = new Bitmap(bounds.Width, bounds.Height);
             using (Graphics g = Graphics.FromImage(bmp))
                 g.CopyFromScreen(bounds.Location, Point.Empty, bounds.Size);
