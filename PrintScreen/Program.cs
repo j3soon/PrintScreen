@@ -88,7 +88,7 @@ namespace PrintScreen
                 Directory.CreateDirectory(path);
             path = Path.Combine(path, DateTime.Now.ToString("yyyyMMdd_HH-mm-ss"));
             int num = 0;
-            for (; File.Exists(Path.Combine(path, num == 0 ? "" : ("_" + num)) + ".png"); num++) ;
+            for (; File.Exists(path + (num == 0 ? "" : ("_" + num)) + ".png"); num++) ;
             return path + (num == 0 ? "" : ("_" + num)) + ".png";
         }
 
@@ -105,6 +105,9 @@ namespace PrintScreen
             Bitmap bmp = new Bitmap(bounds.Width, bounds.Height);
             using (Graphics g = Graphics.FromImage(bmp))
                 g.CopyFromScreen(bounds.Location, Point.Empty, bounds.Size);
+            // Since the program is single-threaded, race conditions won't happen
+            // For multi-threaded program, use the following with try-catch can guarantee that no file is overwritten:
+            // File.Open(path, FileMode.CreateNew)
             String name = GetScreenshotName();
             bmp.Save(name, ImageFormat.Png);
             return name;
