@@ -35,8 +35,8 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="LowLevelControls, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\LowLevelControls.1.1.0\lib\net45\LowLevelControls.dll</HintPath>
+    <Reference Include="LowLevelControls, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\LowLevelControls.1.2.0\lib\net45\LowLevelControls.dll</HintPath>
     </Reference>
     <Reference Include="PortableConfiguration, Version=2.1.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\PortableConfiguration.2.1.0\lib\net45\PortableConfiguration.dll</HintPath>
